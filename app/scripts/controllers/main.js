@@ -10,7 +10,7 @@
 angular.module('colorfuncApp')
   .controller('MainCtrl', function ($scope) {
     $scope.color = {
-      from: '#FED',
+      from: '#FED09E',
       to: '#FFD'
     };
 
@@ -46,10 +46,11 @@ angular.module('colorfuncApp')
     };
 
     $scope.$watch('color', function(val){
-      var tinyFrom = tinycolor(val.from);
-      var tinyTo = tinycolor(val.to);
-      if (tinyFrom && tinyTo) {
-        calcDiff(tinyFrom, tinyTo);
+      $scope.tinyFrom = tinycolor(val.from);
+      $scope.tinyTo = tinycolor(val.to);
+      console.log($scope.tinyFrom);
+      if ($scope.tinyFrom && $scope.tinyTo) {
+        calcDiff($scope.tinyFrom, $scope.tinyTo);
       }
     }, true);
 

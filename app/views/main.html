@@ -5,7 +5,12 @@
         <h3 class="panel-title">Color From:</h3>
       </div>
       <div class="panel-body">
-        <input type="text" class="form-control" ng-model="color.from" />
+        <div class="input-group" ng-class="{'has-error': !tinyFrom.isValid() }">
+          <input type="text" class="form-control" ng-model="color.from" />
+          <span class="input-group-btn">
+            <button ng-style="{'background-color': tinyFrom, 'color': tinyFrom.isDark() ? 'white' : 'black' }" class="btn btn-default" type="button" colorpicker ng-model="color.from">#</button>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -15,7 +20,12 @@
         <h3 class="panel-title">Color To:</h3>
       </div>
       <div class="panel-body">
-        <input type="text" class="form-control" ng-model="color.to" />
+        <div class="input-group" ng-class="{'has-error': !tinyTo.isValid() }">
+          <input type="text" class="form-control" ng-model="color.to" />
+          <span class="input-group-btn">
+            <button ng-style="{'background-color': tinyTo, 'color': tinyTo.isDark() ? 'white' : 'black' }" class="btn btn-default" type="button" colorpicker ng-model="color.to">#</button>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -51,6 +61,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12" ng-show="diff">
+    <hr/>
     <textarea readonly class="form-control">{{ sassFunc() }}</textarea>
   </div>
 </div>
